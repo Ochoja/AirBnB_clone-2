@@ -116,6 +116,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, args):
         """ Create an object of any class"""
         arg = args.split()
+        print(arg)
 
         if not arg[0]:  # no arguments
             print("** class name missing **")
@@ -130,12 +131,15 @@ class HBNBCommand(cmd.Cmd):
 
         for i in range(1, len(arg)):
             values = arg[i].split('=')
+
+            if '_' in values[1]:  # replace underscore with space
+                values[1] = values[1].replace('_', ' ')
             self.do_update(f"{arg[0]} {new_instance.id} {values[0]} {values[1]}")
 
     def help_create(self):
         """ Help information for the create method """
         print("Creates a class of any type")
-        print("[Usage]: create <className>\n")
+        print("[Usage]: create <className> <param 1> <param 2> <param 3>...\n")
 
     def do_show(self, args):
         """ Method to show an individual object """
