@@ -30,7 +30,7 @@ def python(text='is cool'):
 
 @app.route("/number/<n>", strict_slashes=False)
 def number(n):
-    if n % 1 == 0:
+    if type(n) is int:
         return f"{n} is a number"
 
 
