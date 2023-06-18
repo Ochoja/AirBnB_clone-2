@@ -30,7 +30,7 @@ def python(text='is cool'):
 
 @app.route("/number/<n>", strict_slashes=False)
 def number(n):
-    if type(n) is int:
+    if type(n) == int:
         return f"escape({n}) is a number"
 
 
