@@ -22,7 +22,7 @@ def hello():
     return "HBNB"
 
 
-@app.route("/python/(<text>)", strict_slashes=False)
+@app.route("/python/<text>", strict_slashes=False)
 def python(text):
     if text != "is cool":
         return f"Python {escape(text.replace('_', ' '))}"
